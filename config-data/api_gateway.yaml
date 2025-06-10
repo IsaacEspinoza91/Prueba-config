@@ -54,7 +54,7 @@ spring:
             - Path=/api/reservas-comprobantes-service/**
         
         - id: rack-semanal-service
-          uri: lb://RACK_SEMANAL
+          uri: lb://RACK-SEMANAL
           predicates:
             - Path=/api/rack-semanal-service/**
                
