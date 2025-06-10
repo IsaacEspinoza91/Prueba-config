@@ -33,4 +33,32 @@ spring:
           predicates:
             - Path=/api/plan/**
       
+        - id: descuento-grupo-service
+          uri: lb://DESCUENTO_GRUPO
+          predicates:
+            - Path=/api/descuento-grupo-service/**
 
+        - id: cliente-desc-frecu-service
+          uri: lb://CLIENTE_DESC_FRECU
+          predicates:
+            - Path=/api/cliente-service/**
+        
+        - id: dias-especiales-service
+          uri: lb://DIAS_ESPECIALES
+          predicates:
+            - Path=/api/dias-especiales-service/**
+        
+        - id: reservas-comprobantes-service
+          uri: lb://RESERVAS_COMPROBANTES
+          predicates:
+            - Path=/api/reservas-comprobantes-service/**
+        
+        - id: rack-semanal-service
+          uri: lb://RACK_SEMANAL
+          predicates:
+            - Path=/api/rack-semanal-service/**
+               
+        - id: reportes-service
+          uri: lb://REPORTES
+          predicates:
+            - Path=/api/reportes-service/**

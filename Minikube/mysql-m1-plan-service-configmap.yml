@@ -4,4 +4,4 @@ metadata:
   name: mysql-config-m1
 data:
   host: mysql
-  name: simulation
+  name: plan_db
