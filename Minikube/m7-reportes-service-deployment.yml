@@ -18,7 +18,7 @@ spec:
         - name: reportes-service
           image: isaaccumbia/reportes-service:latest
           ports:
-            - containerPort: 8066  # Puerto fijo del contenedor (debe coincidir con el configurado por defecto en tu aplicación)
+            - containerPort: 8066  # Puerto fijo del contenedor 
           env:
             - name: SERVER_PORT
               value: "0"  # Puerto aleatorio

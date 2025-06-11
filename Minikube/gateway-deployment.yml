@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: gateway-deployment
   labels:
-    app: gateway-deployment   # Cambié de 'apps' a 'app' para consistencia
+    app: gateway-deployment   
 spec:
   selector:
     matchLabels:
@@ -15,10 +15,10 @@ spec:
         app: gateway-deployment  # Coincide con el selector
     spec:
       containers:
-        - name: gateway-service  # Nombre descriptivo del contenedor
+        - name: gateway-service 
           image: isaaccumbia/api-gateway:latest
           ports:
-            - containerPort: 8050  # Es el puerto en el que el contenedor escucha dentro del Pod. Esto coincide con el puerto definido en tu código
+            - containerPort: 8050  # Es el puerto en el que el contenedor escucha dentro del Pod
 ---
 apiVersion: v1
 kind: Service
@@ -33,8 +33,6 @@ spec:
   ports:
     - protocol: TCP
       port: 8050            # Es el puerto que expone el Service dentro del clúster Kubernetes. Los demás microservicios usan este puerto para comunicarse.
-      targetPort: 8050      # Es el puerto interno del Pod al que el Service enviará las solicitudes. Debe coincidir con el containerPort.
-      #nodePort: 30050  # puedes elegir un puerto entre 30000-32767 o dejar que lo asigne automáticamente
-  #type: ClusterIP          # Comunicación interna (no expone a fuera del clúster)
+      targetPort: 8050      # Es el puerto interno del Pod al que el Service enviará las solicitudes
 
 

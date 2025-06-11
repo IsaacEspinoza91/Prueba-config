@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: config-deployment
   labels:
-    app: config-deployment   # Cambié de 'apps' a 'app' para consistencia
+    app: config-deployment 
 spec:
   replicas: 1
   selector:
@@ -15,10 +15,10 @@ spec:
         app: config-deployment  # Coincide con el selector
     spec:
       containers:
-        - name: config-service  # Nombre descriptivo del contenedor
+        - name: config-service  # Nombre contenedor
           image: isaaccumbia/config-service:latest
           ports:
-            - containerPort: 8090  # Es el puerto en el que el contenedor escucha dentro del Pod. Esto coincide con el puerto definido en tu código
+            - containerPort: 8090  # Puerto en el que el contenedor escucha dentro del pod
 ---
 apiVersion: v1
 kind: Service
@@ -31,6 +31,6 @@ spec:
     app: config-deployment  # Debe coincidir con las etiquetas del Deployment
   ports:
     - protocol: TCP
-      port: 8090            # Es el puerto que expone el Service dentro del clúster Kubernetes. Los demás microservicios usan este puerto para comunicarse.
-      targetPort: 8090      # Es el puerto interno del Pod al que el Service enviará las solicitudes. Debe coincidir con el containerPort.
+      port: 8090            # Es el puerto que expone el Service dentro del cluster Kubernetes. Los demás microservicios usan este puerto para comunicarse.
+      targetPort: 8090      # Es el puerto interno del Pod al que el Service enviará las solicitudes. Coincide con el containerPort.
   type: ClusterIP          # Comunicación interna (no expone a fuera del clúster)

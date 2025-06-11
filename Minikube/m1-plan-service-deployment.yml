@@ -18,7 +18,7 @@ spec:
         - name: plan-service
           image: isaaccumbia/plan-service:latest
           ports:
-            - containerPort: 8061  # Puerto fijo del contenedor (debe coincidir con el configurado por defecto en tu aplicación)
+            - containerPort: 8061  # Puerto fijo del contenedor
           env:
             - name: SERVER_PORT
               value: "0"  # Puerto aleatorio
