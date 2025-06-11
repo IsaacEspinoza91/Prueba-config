@@ -23,16 +23,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: gatewayservice  # Un nombre único para el Service
+  name: gateway-service  # Un nombre único para el Service
   labels:
     app: gateway-deployment  # Coincide con el Deployment
 spec:
+  type: ClusterIP 
   selector:
     app: gateway-deployment  # Debe coincidir con las etiquetas del Deployment
   ports:
     - protocol: TCP
       port: 8050            # Es el puerto que expone el Service dentro del clúster Kubernetes. Los demás microservicios usan este puerto para comunicarse.
       targetPort: 8050      # Es el puerto interno del Pod al que el Service enviará las solicitudes. Debe coincidir con el containerPort.
-  type: ClusterIP          # Comunicación interna (no expone a fuera del clúster)
+      #nodePort: 30050  # puedes elegir un puerto entre 30000-32767 o dejar que lo asigne automáticamente
+  #type: ClusterIP          # Comunicación interna (no expone a fuera del clúster)
 
 

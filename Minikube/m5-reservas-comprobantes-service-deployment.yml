@@ -43,12 +43,12 @@ spec:
                 secretKeyRef:
                   name: mysql-root-credentials  # El secret que contiene la contraseña root
                   key: password
-            - name: EMAIL-NAME
+            - name: EMAIL_NAME
               valueFrom:
                 secretKeyRef:
                   name: m5-email-credentials
                   key: email-name
-            - name: PASSWORD-NAME
+            - name: PASSWORD_NAME
               valueFrom:
                 secretKeyRef:
                   name: m5-email-credentials
